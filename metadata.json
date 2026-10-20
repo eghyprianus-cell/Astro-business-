@@ -1,0 +1,6 @@
+{
+  "name": "ASTRO BUSINESS - Modern Cosmic Business Management",
+  "description": "Aplikasi manajemen bisnis modern bertema astrologi dan konstelasi galaksi untuk Android & Web. Dilengkapi Kasir POS, Inventaris, Pembukuan Kas, Faktur Invoice, dan CRM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

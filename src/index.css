@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+
+    /* Cosmic Business Design System Tokens */
+    --color-midnight-navy: #070a14;
+    --color-midnight-surface: #0b0f22;
+    --color-midnight-elevated: #111736;
+    --color-cosmic-purple: #7c3aed;
+    --color-star-gold: #fbbf24;
+    --color-soft-blue: #38bdf8;
+    --color-pure-white: #ffffff;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #070a14; /* Midnight Navy primary background */
+    color: #ffffff; /* White primary text */
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-cosmic {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom cosmic scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(7, 10, 20, 0.7);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.35); /* Cosmic Purple scroll thumb */
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.6); /* Star Gold hover */
+}
+
+/* Cosmic Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-orbit-slow {
+  animation: orbitRotate 60s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+/* Glassmorphism for celestial cards (Midnight Navy + Cosmic Purple border) */
+.cosmic-glass {
+  background: rgba(11, 15, 34, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cosmic-glass-interactive {
+  background: rgba(12, 17, 38, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cosmic-glass-interactive:hover {
+  background: rgba(20, 26, 56, 0.92);
+  border-color: rgba(251, 191, 36, 0.35); /* Star Gold border on hover */
+  box-shadow: 0 10px 32px -6px rgba(124, 58, 237, 0.25), 0 0 18px -2px rgba(251, 191, 36, 0.15);
+}
+
+/* Premium Card Presets */
+.cosmic-card-gold {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.09) 0%, rgba(11, 15, 34, 0.9) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+}
+
+.cosmic-card-violet {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(11, 15, 34, 0.9) 100%);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.cosmic-card-cyan {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(11, 15, 34, 0.9) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+/* Star Gold Button Utility (High-Priority Action) */
+.btn-star-gold {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #070a14;
+  font-weight: 700;
+  box-shadow: 0 4px 18px -2px rgba(245, 158, 11, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-star-gold:hover {
+  background: linear-gradient(135deg, #fde047 0%, #fbbf24 100%);
+  box-shadow: 0 6px 24px -2px rgba(245, 158, 11, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-star-gold:active {
+  transform: scale(0.97);
+}
+
+/* Cosmic Purple Button Utility (Secondary Action) */
+.btn-cosmic-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 18px -2px rgba(124, 58, 237, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-cosmic-purple:hover {
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+  box-shadow: 0 6px 24px -2px rgba(124, 58, 237, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-cosmic-purple:active {
+  transform: scale(0.97);
+}
+
+/* Soft Blue Info & Supporting Text */
+.text-soft-blue {
+  color: #38bdf8;
+}
+
+/* Print styles for Receipt & Invoice */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .printable-area {
+    display: block !important;
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
